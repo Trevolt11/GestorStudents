@@ -1,8 +1,16 @@
 <?php
+    class Layout{
 
-    function printHeader($isRoot = false){
+        private $IsRoot;
 
-        $directory = ($isRoot) ? "" : "../";
+        public function __construct($isRoot = false)
+        {
+            $this->IsRoot = $isRoot;
+        }
+
+    function printHeader(){
+
+        $directory = ($this->IsRoot) ? "" : "../";
 
         $header = <<<EOF
 
@@ -46,14 +54,15 @@ EOF;
     }
 
 
-    function printFooter($isRoot = false){
+    function printFooter(){
 
-        $directory = ($isRoot) ? "" : "../";
+        $directory = ($this->IsRoot) ? "" : "../";
 
         $footer = <<<EOF
 
         </main>      
-    
+
+        <script src="{$directory}assets/js/jquery/jquery-3.5.1.min.js"></script>
         <script src="{$directory}assets/js/bootstrap/bootstrap.min.js"></script>
     
     </body>
@@ -65,3 +74,5 @@ EOF;
     echo $footer;
 
     }
+
+}

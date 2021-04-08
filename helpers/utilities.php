@@ -1,9 +1,11 @@
 <?php
 
-    $companies = [1=> "Warnebrothr", 2=>"Disney"];
+    class Utilities{
+
+    public $companies = [1=> "Software", 2=>"Redes", 3=>"Multimedia", 4=>"Mecatronica", 5=>"Seguridad"];
  
 
-    function getLastElement($list){
+    public function getLastElement($list){
 
         $countList = count($list);
         $lastElement = $list[$countList -1];
@@ -12,13 +14,13 @@
 
     }
 
-    function searchProperty($list,$property,$value){
+    public function searchProperty($list,$property,$value){
 
         $filters = [];
 
         foreach($list as $item){
 
-            if($item[$property] == $value){
+            if($item->$property == $value){
                 array_push($filters, $item);
             }
         }
@@ -26,15 +28,15 @@
         return $filters;
     }
 
-    function getIndexElement($list,$property,$value){
+    public function getIndexElement($list,$property,$value){
 
         foreach($list as $key => $item){
 
-            if($item[$property] == $value){             
-                return $key;                
-                break;
+            if($item->$property == $value){             
+                return $key;              
+               
             }
         }
     }
 
-?>
+}
